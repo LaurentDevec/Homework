@@ -4,20 +4,16 @@ import java.util.Arrays;
 
 public class SecondTask {
     public static void main(String[] args) {
-        int[] arr1 = new int[10];
-
-
-            int[] arr2 = new int[arr1.length];
-
-            for (int m = 2; m < arr1.length; m++) {
-                arr2[arr1.length - 1 - m] = arr1[m];
-                System.out.println(arr1[m] + " ");
-
-                System.out.print(Arrays.toString(arr1));
-
-
+        int[] arr1 = new int[11];
+        for (int i = 1; i < arr1.length; i++) {
+            arr1[i] = i*2;
+            System.out.println(arr1[i] + " ");
+        }
+        for (int i = arr1.length - 1; i >= 0; i--) {
+            System.out.print(arr1[i] + " ");
+                }
             }
         }
-    }
+
 
 
