@@ -3,12 +3,13 @@ package ru.laurent.homework.homework6.task1.elements;
 import java.util.Arrays;
 
 public class GroupClimbers {
-    private String color = "белый";
+
+    private String nameMount = "Эверест";
     private Climber[] climbers; // массив альпинистов
 
-    public Climber(int climbersCount){
+    public GroupClimbers(int climbersCount){
         if (climbersCount <= 0) {
-            throw new IllegalArgumentException("booksCount дб положительным");
+            throw new IllegalArgumentException("Количество альпинистов дб положительным");
         }
         climbers = new Climber[climbersCount];
     }
@@ -21,17 +22,15 @@ public class GroupClimbers {
                 return; // и прервать метод, чтобы ссылка не заполнила весь массив
             }
         }
-        System.out.println("Книге автора " + climbers.getAuthor().getFullName() + " не хватило места в группе ");
+        System.out.println("Альпинисту " + climbers.getAuthor().getFullName() + " не хватило места в группе ");
     }
-    public String getColor() {
-        return color;
-    }
+
 
     @Override
     public String toString() {
-        return "Shelf{" +
-                "color='" + color + '\'' +
-                ", books=" + Arrays.toString(climbers) +
+        return "Group" +
+                "nameOfMountain='" + color + '\'' +
+                ", climbers=" + Arrays.toString(climbers) +
                 '}';
 
     }

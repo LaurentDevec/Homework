@@ -6,4 +6,13 @@ public class Cat {
     private double mass;
     private int numberMice;
 
+    public Cat(String name, int speed, double mass, int numberMice)  {
+        setName(name);
+        setSpeed(speed);
+        setMass(mass);
+        setNumberMice(numberMice);
+    }
+
+
+
 }

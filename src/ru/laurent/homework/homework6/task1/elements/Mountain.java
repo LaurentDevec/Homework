@@ -1,62 +1,50 @@
 package ru.laurent.homework.homework6.task1.elements;
 
 public class Mountain {
-    private String title;
-    private int pageCount;
-    private Author author;
-    // private позволяет обращаться к свойствам и методам только
-    // из текущего класса
+    private int highMount;
+    private String nameMount;
+    private String countryMount;
 
-
-    // конструктор по умолчанию public Book(){} позволяет
-    // создать объекты new Book()
-    public Book(){}
-
-    // конструкторы должны отличаться типом и количеством аргументов
-    public Book(String title){ // new Book("Java 17")
-        this.title = title;
+    public int getHighMount(){
+        return highMount;
     }
 
-    // new Book("Java 17", author1)
-    public Book(String title, Author author) {
-        this.title = title;
-        setAuthor(author);
-    }
-
-    // методы, которые позволяют установить значения
-    // private свойств - сеттеры
-    public void setPageCount(int count) {
-        if (count < 10) {
-            throw new IllegalArgumentException("значение не м.б меньше 10");
+    public void setHighMount(int high) {
+        if (high < 100) {
+            throw new IllegalArgumentException("высота горы не может быть меньше 100 м");
         }
-        pageCount = count;
-    }
-
-    // методы, которые возвращают значения
-    // private свойств - геттеры
-    public int getPageCount(){
-        return pageCount;
+        highMount = high;
     }
 
 
-    public Author getAuthor() {
-        return author;
+    public String getNameMount() {
+        return nameMount;
     }
 
-    public void setAuthor(Author author) {
-        if (author == null) {
-            throw new IllegalArgumentException("author не м.б null");
+    public void setNameMount(String nameMount) {
+        if (nameMount == null) {
+            throw new IllegalArgumentException("Название горы не м.б. null");
         }
-        // this - ссылка на текущий объект
-        this.author = author;
+        this.nameMount = nameMount;
+    }
+
+    public String getCountryMount() {
+        return countryMount;
+    }
+
+    public void setCountryMount(String countryMount) {
+        if (countryMount == null) {
+            throw new IllegalArgumentException("Название страны, где есть горы не м.б. null");
+        }
+        this.countryMount = countryMount;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
-                ", pageCount=" + pageCount +
-                ", author=" + author +
+                "countryMount='" + countryMount + '\'' +
+                ", highMount=" + highMount +
+                ", nameMount=" + nameMount +
                 '}';
     }
 }
