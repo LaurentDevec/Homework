@@ -1,5 +1,8 @@
 package ru.laurent.homework.serializable.base;
 
+import ru.laurent.homework.serializable.units.Infantry;
+import ru.laurent.homework.serializable.units.Knight;
+
 abstract public class BattleUnit extends Unit {
 
     protected int attackScore;
@@ -21,11 +24,10 @@ abstract public class BattleUnit extends Unit {
 
     // фабричный метод
     public static BattleUnit getBattleUnit(){
+        int randomIndex = (int) Math.round(Math.random());
         String[] types = {"knight", "infantry"};
-        // TODO: дописать реализацию метода
-        // тип создаваемого юнита определяем через Math.random
-        // в зависимости от типа создаем объект того или иного юнита
-        return null;
+        if ("knight".equals(types[randomIndex])) return new Knight(30, 10, 25);
+        return new Infantry(30, 10, 5);
     }
 
     public static BattleUnit[] getBattleUnits(int count){

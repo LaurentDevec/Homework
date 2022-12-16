@@ -3,7 +3,7 @@ package ru.laurent.homeworkLesson14.employee;
 
 import java.util.*;
 
-public class Employee implements Comparable<Employee>{
+public class Employee {
 
     private String name;
     private String company;
@@ -50,11 +50,30 @@ public class Employee implements Comparable<Employee>{
     }
 
     // TODO: добавить конструктор, необходимы геттеры и сеттеры
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Employee employee = (Employee) o;
+
+        if (salary != employee.salary) return false;
+        if (age != employee.age) return false;
+        if (!Objects.equals(name, employee.name)) return false;
+        return Objects.equals(company, employee.company);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (company != null ? company.hashCode() : 0);
+        result = 31 * result + salary;
+        result = 31 * result + age;
+        return result;
+    }
 
 
-    // TODO: дописать реализацию метода для создания списка из объектов класса Employee.
-    //  Объекты Employee создавать с рандомными значениями. Возраст от 21 до 60 и не забудьте про зп.
-    //  num - количество объектов в списке
+
     public static List<Employee> employeeGenerator(int num) {
         String[] names = {"Mike", "Tom", "Alex", "John", "Peter", "Jack", "Charlie", "Max", "Jenifer", "Linda", "Elizabeth"}; // массив с именами
         String[] companies = {"Microsoft", "IBM", "Google", "General Electric", "Siemens", "Samsung", "Apple"}; // массив с названиями компаний
@@ -62,48 +81,14 @@ public class Employee implements Comparable<Employee>{
         ArrayList<Employee> employees = new ArrayList<>();
 
         System.out.println(employees.size());
-        ArrayList<Employee> salaries = new ArrayList<Employee>();
-        random = getRandom(100, 100);
-        for (int i = 0; i < random.size(); i++)
-            System.out.println(random.get(i));
-
-       // employees.add(employee1);
-        // employees.add(employee2);
-
-        // создание объектов, наполнение списка
+        for (int i = 0; i < num; i++) {
+            String randName = names[(int) (Math.random() * names.length)];
+            String randCompany = companies[(int) (Math.random() * companies.length)];
+            int randSalary = (int) ( 100_000 + Math.random() * 300_000);
+            int randAge = (int) ( 21 + Math.random() * 39);
+            employees.add(new Employee(randName, randCompany, randSalary, randAge));
+        }
 
         return employees;
-    }
-
- // реализация рандома для заполнения salary
-    public static List<Salary> generate(int num){
-        if (num <= 0) {
-            return Collections.emptyList();
-        }
-
-        Random random = new Random();
-        List<Salary> messages = new ArrayList<>(num);
-
-//        values() - вернет массив констант
-        int typesCount = MessagePriority.values().length;
-
-        for (int i = 0; i < num; i++){
-            messages.add(new Message(random.nextInt(10), MessagePriority.getPriority(random.nextInt(typesCount))));
-        }
-
-}*/
-
-    private static ArrayList<Integer> getRandom(int range, int size) {
-        ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
-        for (int i = 0; i < size; i++)
-            randomNumbers.set(i, new Random().nextInt(range)+1);
-        return randomNumbers;
-    }
-
-    @Override
-    public int compareTo(Employee employee) {
-        if (this.getAge() < employee.getAge()) return -1;
-        if (this.getAge() > employee.getAge()) return 1;
-        return 0;
     }
 }

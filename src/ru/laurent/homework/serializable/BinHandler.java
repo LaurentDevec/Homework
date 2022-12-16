@@ -28,9 +28,9 @@ public class BinHandler <T> {
         )
         {
             result = objectInput.readObject();
-        } catch (IOException e | ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return
+        return (T) result;
     }
 }

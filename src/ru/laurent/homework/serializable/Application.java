@@ -22,11 +22,16 @@ public class Application {
 
     public static void main(String[] args) {
 
-        King king01 = new King(2000);
+        King king01 = new King(3000);
         king01.rest();
 
         King king02 = new King(2000);
         king02.rest(king01);
+
+        Kingdom kingdom01 = new Kingdom("Kingdom 1");
+        kingdom01.setKing(king01);
+        Kingdom kingdom02 = new Kingdom("Kingdom 2");
+        kingdom02.setKing(king02);
 
         System.out.println(king01.getHealthScore());
 

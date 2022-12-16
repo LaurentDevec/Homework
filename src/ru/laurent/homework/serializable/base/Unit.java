@@ -16,7 +16,7 @@ abstract public class Unit {
         maxHealthScore = healthScore;
     }
 
-    public boolean isAlive(){
+    public boolean isAlive(  ){
         // возвращает true, если здоровье больше 0 и false, если меньше или равно 0
         // if (healthScore > 0) return true;
         // return false;

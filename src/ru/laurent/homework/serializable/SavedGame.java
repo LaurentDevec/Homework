@@ -5,6 +5,8 @@ import ru.laurent.homework.serializable.units.Infantry;
 import ru.laurent.homework.serializable.units.King;
 import ru.laurent.homework.serializable.units.Knight;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class SavedGame implements Serializable {
@@ -17,7 +19,7 @@ public class SavedGame implements Serializable {
 
 
 
-    SavedGame savedGame = new SavedGame(battleUnits[], king, diplomacyInfo);
+    SavedGame savedGame = new SavedGame(battleUnits[], king);
 
     //создаем 2 потока для сериализации объекта и сохранения его в файл
     FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Username\\Desktop\\save.ser");
