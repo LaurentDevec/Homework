@@ -5,46 +5,65 @@ public class Mountain {
     private String nameMount;
     private String countryMount;
 
-    public int getHighMount(){
-        return highMount;
-    }
+    private Climber climber;
 
-    public void setHighMount(int high) {
-        if (high < 100) {
-            throw new IllegalArgumentException("высота горы не может быть меньше 100 м");
+    public Mountain(int highMount, String nameMount, String countryMount) {
+
+    }
+        public int getHighMount () {
+            return highMount;
         }
-        highMount = high;
-    }
 
-
-    public String getNameMount() {
-        return nameMount;
-    }
-
-    public void setNameMount(String nameMount) {
-        if (nameMount == null) {
-            throw new IllegalArgumentException("Название горы не м.б. null");
+        public void setHighMount ( int high){
+            if (high < 100) {
+                throw new IllegalArgumentException("высота горы не может быть меньше 100 м");
+            }
+            highMount = high;
         }
-        this.nameMount = nameMount;
-    }
 
-    public String getCountryMount() {
-        return countryMount;
-    }
 
-    public void setCountryMount(String countryMount) {
-        if (countryMount == null) {
-            throw new IllegalArgumentException("Название страны, где есть горы не м.б. null");
+        public String getNameMount () {
+            return nameMount;
         }
-        this.countryMount = countryMount;
+
+        public void setNameMount (String nameMount){
+            if (nameMount == null) {
+                throw new IllegalArgumentException("Название горы не м.б. null");
+            }
+            this.nameMount = nameMount;
+        }
+
+        public String getCountryMount () {
+            return countryMount;
+        }
+
+        public void setCountryMount (String countryMount){
+            if (countryMount == null) {
+                throw new IllegalArgumentException("Название страны, где есть горы не м.б. null");
+            }
+            this.countryMount = countryMount;
+        }
+
+    public Climber getClimber() {
+        return climber;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "countryMount='" + countryMount + '\'' +
-                ", highMount=" + highMount +
-                ", nameMount=" + nameMount +
-                '}';
-    }
+    public void setClimber (Climber climber) {
+            if (climber == null) {
+                throw new IllegalArgumentException("Должен быть указан альпинист");
+            }
+            this.climber = climber;
+        }
+
+        @Override
+        public String toString () {
+            return "Mountain{" +
+                    "countryMount='" + countryMount + '\'' +
+                    ", highMount=" + highMount + '\'' +
+                    ", nameMount=" + nameMount + '\'' +
+                    ", name of climber=" + climber +
+                    '}';
+        }
+
+
 }

@@ -1,62 +1,52 @@
 package ru.laurent.homework.homework6.task1;
 
+import ru.laurent.homework.homework6.task1.elements.Climber;
+import ru.laurent.homework.homework6.task1.elements.GroupClimbers;
+import ru.laurent.homework.homework6.task1.elements.Mountain;
+
 public class Main {
-    public static void main(String[] args) {
-        GroupClimbers group1 = new GroupClimbers();
+ private Climber climber;
+
+ public static void main(String[] args) {
+      /*  GroupClimbers group1 = new GroupClimbers();
         GroupClimbers group2 = new GroupClimbers();
         GroupClimbers group3 = new GroupClimbers();
 
         // обращение к свойствам осуществляется через .
-        author1.name = "Tom";
-        author1.surname = "Crowed";
-
-        System.out.println(author2.name); // null
-        System.out.println(author2.surname); // null
-
-        author2.name = "Mike";
-        author2.surname = "Thompson";
-
-        System.out.println(author2.name); // Mike
-        System.out.println(author2.surname); // Thompson
-
-        System.out.println(author1);
-
-        // вызов метода осуществляется через .
-        author1.printFullName(); // void
-        String fullName = author2.getFullName();
-
-        System.out.println(fullName);
-
-        // три горы
+       climber1.name = "Tom";
+        author1.surname = "Crowed"; */
 
 
-        Mountain mountain1 = new Mountain();
-        mountain1.setHighMount(22);
-        System.out.println(book1.getPageCount());
-        mountain1.setAuthor(author1);
+   Mountain mount1 = new Mountain(5033, "Cazbek", "Russia");
+   Mountain mount2 = new Mountain(4810 , "Mont Blanc", "France");
+   Mountain mount3 = new Mountain(5034, "Foraker", "USA");
 
-        System.out.println(mountain1);
+   Climber ivan = new Climber("Иван", "Россия");
+   Climber petr = new Climber("Петр", "Россия");
+   Climber sergey = new Climber("Сергей", "Россия");
+   Climber alex = new Climber("Alex", "Бразилия");
+   Climber leo = new Climber("Alex", "Аргентина");
+   Climber frank = new Climber("Frank", "Мексика");
+   Climber steven = new Climber("Steven", "Великобритания");
+
+   GroupClimbers groupEverest = new GroupClimbers(mount1);
+   GroupClimbers groupElbrus = new GroupClimbers(mount1);
+   GroupClimbers groupKilimanjaro = new GroupClimbers(kilimanjaro);
+
+   groupEverest.addAplinist(steven);
+   groupEverest.addAplinist(leo);
+   groupEverest.addAplinist(frank);
+   groupEverest.addAplinist(alex); // проверяем, что набор закрыт
+
+   groupElbrus.addAplinist(ivan);
+   groupElbrus.addAplinist(petr);
+   groupElbrus.printGroupInformation(); // набор открыт
+
+   groupKilimanjaro.addAplinist(alex);
+   groupKilimanjaro.addAplinist(sergey);
+   groupKilimanjaro.printGroupInformation(); // набор открыт
 
 
 
-        Mountain mountain2 = new Mountain();
-        mountain2.setHighMount(1300);
-        System.out.println(mountain2.getPageCount());
-        mountain2.setAuthor(author1);
-
-        Mountain mountain3 = new Mountain();
-        mountain3.setHighMount(670);
-        System.out.println(mountain3.getPageCount());
-        mountain3.setAuthor(author2);
-
-
-        Shelf shelf = new Shelf(3); // [null, null, null]
-        Shelf shelf2 = new Shelf(9);
-        // [null, null, null, null, null, null, null, null, null]
-
-        shelf.addBook(book1);
-        shelf.addBook(book2);
-        shelf.addBook(book3);
-        shelf.addBook(book4);
-    }
-}
+  }
+ }
